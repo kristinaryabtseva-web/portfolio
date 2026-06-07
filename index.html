@@ -198,8 +198,32 @@ section{margin-top:36px}
   font-size:12px;line-height:1;color:var(--ink);
   transition:all .45s var(--ease);
 }
+.s-chev{position:relative;overflow:visible}
 .s-chev::before{content:"⛰️"}
 section.open .s-chev::before{content:"🐜"}
+/* CTA: згорнутий мурашник пульсує і запрошує натиснути */
+section:not(.open) .s-chev{animation:antpulse 2.6s infinite}
+@keyframes antpulse{
+  0%{box-shadow:0 0 0 0 rgba(232,81,26,.4)}
+  55%{box-shadow:0 0 0 9px rgba(232,81,26,0)}
+  100%{box-shadow:0 0 0 0 rgba(232,81,26,0)}
+}
+/* мураха періодично визирає з мурашника */
+section:not(.open) .s-chev::after{
+  content:"🐜";
+  position:absolute;left:50%;top:-8px;
+  font-size:10px;line-height:1;
+  opacity:0;transform:translateX(-50%) translateY(8px);
+  animation:antpeek 5s infinite .8s;
+  pointer-events:none;
+}
+@keyframes antpeek{
+  0%,52%{opacity:0;transform:translateX(-50%) translateY(8px)}
+  60%{opacity:1;transform:translateX(-50%) translateY(-2px)}
+  68%{opacity:1;transform:translateX(-50%) translateY(-4px) rotate(-12deg)}
+  76%{opacity:1;transform:translateX(-50%) translateY(-2px) rotate(10deg)}
+  86%,100%{opacity:0;transform:translateX(-50%) translateY(8px)}
+}
 section.open .s-chev{
   background:var(--orange);border-color:var(--orange);color:#fff;
   transform:scale(1.08);
@@ -839,7 +863,7 @@ footer .sg{font-weight:600;color:var(--soft)}
 
   <footer>
     <span class="sg">Христина Рябцева — Product Owner × AI</span>
-    <span>v3.18.1 · створено з Claude Code · 2026</span>
+    <span>v3.19.0 · створено з Claude Code · 2026</span>
   </footer>
 
 </div>
