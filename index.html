@@ -89,20 +89,63 @@ a{color:var(--blue);text-decoration:none}
 .kn-btn.pdf{background:none;border:1px solid rgba(255,255,255,.4);box-shadow:none}
 .kn-btn.pdf:hover{border-color:var(--orange);color:var(--orange);transform:none}
 
-/* ====== МІНІ-ТАЙМЛАЙН ====== */
-.tl{
-  display:flex;align-items:stretch;
+/* ====== АНІМОВАНИЙ ТАЙМЛАЙН З МУРАХОЮ ====== */
+.tl2{
+  position:relative;
   margin-top:14px;
-  border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff;
+  border:1px solid var(--line);border-radius:8px;background:#fff;
+  padding:18px 16px 14px;
 }
-.tn{flex:1;padding:10px 14px 11px;border-left:1px solid var(--line)}
-.tn:first-child{border-left:none}
+.tl-track{position:relative;height:34px;margin-bottom:4px}
+.tl-line{
+  position:absolute;left:12.5%;right:12.5%;top:50%;height:2px;
+  background:var(--line);transform:translateY(-50%);border-radius:2px;
+}
+.tl-fill{
+  position:absolute;left:12.5%;top:50%;height:2px;width:0;
+  background:var(--orange);transform:translateY(-50%);border-radius:2px;
+}
+.tl-dot{
+  position:absolute;left:var(--x);top:50%;
+  width:10px;height:10px;border-radius:50%;
+  background:var(--line);
+  transform:translate(-50%,-50%) scale(.55);
+  transition:all .4s cubic-bezier(.34,1.56,.64,1);
+}
+.tl-dot.on{
+  background:var(--orange);
+  transform:translate(-50%,-50%) scale(1);
+  box-shadow:0 0 0 4px rgba(232,81,26,.16);
+}
+.tl-ant{
+  position:absolute;left:12.5%;top:50%;z-index:2;
+  font-size:18px;line-height:1;
+  transform:translate(-50%,-62%) scaleX(-1);
+  animation:antbob .22s infinite alternate;
+}
+@keyframes antbob{from{margin-top:-1px}to{margin-top:1px}}
+.tl-ant.done{animation:anthop .5s cubic-bezier(.34,1.56,.64,1) 2}
+@keyframes anthop{0%,100%{margin-top:0}50%{margin-top:-8px}}
+.tl-items{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center}
+.tl-it{
+  opacity:0;transform:translateY(12px) scale(.96);
+  transition:opacity .45s var(--ease),transform .5s cubic-bezier(.34,1.56,.64,1);
+}
+.tl-it.on{opacity:1;transform:none}
 .td{
   display:block;
   font-family:'Space Grotesk',sans-serif;font-size:9.5px;font-weight:700;
   letter-spacing:.15em;text-transform:uppercase;color:var(--orange);
 }
 .tt{display:block;font-size:11.5px;color:var(--soft);margin-top:3px;font-weight:500}
+.tl-replay{
+  position:absolute;top:8px;right:10px;
+  width:24px;height:24px;border-radius:50%;
+  font-size:12px;color:var(--faint);
+  background:none;border:1px solid var(--line);cursor:pointer;
+  transition:all .3s var(--ease);
+}
+.tl-replay:hover{color:var(--orange);border-color:var(--orange);transform:rotate(180deg)}
 
 /* ====== ПАНЕЛЬ РОЗГОРНУТИ/ЗГОРНУТИ ====== */
 .tools{display:flex;justify-content:flex-end;gap:8px;margin-top:26px;margin-bottom:-14px}
@@ -384,7 +427,10 @@ footer .sg{font-weight:600;color:var(--soft)}
 @media print{
   body{background:#fff;font-size:12.5px}
   .page{padding:0;max-width:none}
-  .kn-btn,.keynote,.chev,.s-chev,.tools,.shot-btn{display:none !important}
+  .kn-btn,.keynote,.chev,.s-chev,.tools,.shot-btn,.tl-ant,.tl-replay{display:none !important}
+  .tl-it{opacity:1 !important;transform:none !important}
+  .tl-dot{background:var(--orange) !important;transform:translate(-50%,-50%) scale(1) !important}
+  .tl-fill{width:75% !important}
   .masthead{border-radius:0}
   .entry{break-inside:avoid}
   /* при друку всі блоки розгорнуті, скріншоти видимі */
@@ -406,10 +452,8 @@ footer .sg{font-weight:600;color:var(--soft)}
   .e-headside{width:100%;justify-content:space-between;flex-direction:row-reverse}
   .e-num{text-align:left}
   .hbtns{flex-direction:row;width:100%}
-  .tl{flex-wrap:wrap}
-  .tn{min-width:50%;border-top:1px solid var(--line)}
-  .tn:nth-child(-n+2){border-top:none}
-  .tn:nth-child(odd){border-left:none}
+  .tl-track{display:none}
+  .tl-items{grid-template-columns:repeat(2,1fr);gap:14px 10px;text-align:left}
   .approach{grid-template-columns:1fr}
 }
 
@@ -517,12 +561,24 @@ footer .sg{font-weight:600;color:var(--soft)}
 
   </div>
 
-  <!-- МІНІ-ТАЙМЛАЙН -->
-  <div class="tl">
-    <div class="tn"><span class="td">Квітень 2026</span><span class="tt">MAD Backlog — старт</span></div>
-    <div class="tn"><span class="td">Травень 2026</span><span class="tt">AI MAD · AI Report · AI Sandbox</span></div>
-    <div class="tn"><span class="td">Травень — червень</span><span class="tt">GraficRobit — 90+ релізів</span></div>
-    <div class="tn"><span class="td">Червень 2026</span><span class="tt">Публікація рішень онлайн</span></div>
+  <!-- АНІМОВАНИЙ ТАЙМЛАЙН -->
+  <div class="tl2" id="tl2">
+    <button class="tl-replay" onclick="tlPlay()" title="Програти ще раз">↻</button>
+    <div class="tl-track">
+      <div class="tl-line"></div>
+      <div class="tl-fill" id="tlFill"></div>
+      <span class="tl-dot" style="--x:12.5%"></span>
+      <span class="tl-dot" style="--x:37.5%"></span>
+      <span class="tl-dot" style="--x:62.5%"></span>
+      <span class="tl-dot" style="--x:87.5%"></span>
+      <span class="tl-ant" id="tlAnt">🐜</span>
+    </div>
+    <div class="tl-items">
+      <div class="tl-it"><span class="td">Квітень 2026</span><span class="tt">MAD Backlog — старт</span></div>
+      <div class="tl-it"><span class="td">Травень 2026</span><span class="tt">AI MAD · AI Report · AI Sandbox</span></div>
+      <div class="tl-it"><span class="td">Травень — червень</span><span class="tt">GraficRobit — 90+ релізів</span></div>
+      <div class="tl-it"><span class="td">Червень 2026</span><span class="tt">Публікація рішень онлайн</span></div>
+    </div>
   </div>
 
   <!-- ПІДХІД -->
@@ -757,7 +813,7 @@ footer .sg{font-weight:600;color:var(--soft)}
 
   <footer>
     <span class="sg">Христина Рябцева — Product Owner × AI</span>
-    <span>v3.16.0 · створено з Claude Code · 2026</span>
+    <span>v3.17.0 · створено з Claude Code · 2026</span>
   </footer>
 
 </div>
@@ -888,6 +944,37 @@ function toggleEntry(btn){
 function toggleSec(btn){
   btn.closest('section').classList.toggle('open');
 }
+// ====== АНІМОВАНИЙ ТАЙМЛАЙН З МУРАХОЮ ======
+let tlRAF = null;
+function tlPlay(){
+  const fill = document.getElementById('tlFill');
+  const ant  = document.getElementById('tlAnt');
+  const dots = [...document.querySelectorAll('.tl-dot')];
+  const items= [...document.querySelectorAll('.tl-it')];
+  dots.forEach(d=>d.classList.remove('on'));
+  items.forEach(i=>i.classList.remove('on'));
+  ant.classList.remove('done');
+  cancelAnimationFrame(tlRAF);
+  const D = 3400, t0 = performance.now();
+  const ease = p => p<.5 ? 2*p*p : 1-Math.pow(-2*p+2,2)/2;
+  const step = t => {
+    const p = Math.min((t-t0)/D, 1), e = ease(p);
+    fill.style.width = (75*e)+'%';
+    ant.style.left = (12.5 + 75*e)+'%';
+    dots.forEach((d,i)=>{
+      if(e >= i/3 - 0.005){ d.classList.add('on'); items[i].classList.add('on'); }
+    });
+    if(p < 1) tlRAF = requestAnimationFrame(step);
+    else ant.classList.add('done');
+  };
+  tlRAF = requestAnimationFrame(step);
+}
+// старт, коли таймлайн з'являється на екрані (один раз)
+const tlIO = new IntersectionObserver((es)=>{
+  es.forEach(e=>{ if(e.isIntersecting){ tlPlay(); tlIO.disconnect(); } });
+},{threshold:.4});
+tlIO.observe(document.getElementById('tl2'));
+
 // ====== ЗАМОК НА ПОСИЛАННЯ ======
 const LOCK_HASH = '271b644007d1fa415cd91c6c8187d232cde3ff05890a9f801a4062866b7882d2';
 let lockTarget = null;
