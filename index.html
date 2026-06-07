@@ -10,6 +10,10 @@
 <meta property="og:description" content="5 проєктів за 3 місяці без класичної команди розробки: продукти в експлуатації, автоматизації, дослідження.">
 <meta property="og:url" content="https://kristinaryabtseva-web.github.io/portfolio/">
 <meta property="og:locale" content="uk_UA">
+<meta property="og:image" content="https://kristinaryabtseva-web.github.io/portfolio/images/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%23E8511A'/%3E%3Ctext x='32' y='45' font-family='Arial,sans-serif' font-size='38' font-weight='bold' fill='white' text-anchor='middle'%3E%D0%A5%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -244,6 +248,8 @@ section.open .sec-body{grid-template-rows:1fr}
 }
 .sec-title::after{content:"";flex:1;height:2px;background:var(--ink);opacity:.85}
 .sec-sub{font-size:12px;color:var(--faint);margin-bottom:18px}
+.sec-prev{display:none;font-size:11.5px;color:var(--faint);margin:2px 0 0 2px}
+section:not(.open) .sec-prev{display:block}
 
 /* ====== ЗАПИС-ПРОЄКТ (згортається, 2-й рівень вкладеності) ====== */
 .sec-body .entry{
@@ -470,6 +476,7 @@ footer{
   font-size:11px;color:var(--faint);
 }
 footer .sg{font-weight:600;color:var(--soft)}
+.f-note{color:var(--faint);font-size:11px}
 
 /* ====== ДРУК / PDF ====== */
 @media print{
@@ -664,6 +671,7 @@ footer .sg{font-weight:600;color:var(--soft)}
   <!-- ПРОДУКТИ -->
   <section class="open" id="products">
     <button class="sec-title" onclick="toggleSec(this)"><span class="n">02</span> Продукти й автоматизації <span class="s-chev"></span></button>
+    <div class="sec-prev">3 рішення: GraficRobit · AI MAD Dashboard · MAD Backlog</div>
     <div class="sec-body"><div>
     <div class="sec-sub">Працюють постійно: оптимізують процес або дають цінність щодня</div>
 
@@ -680,7 +688,7 @@ footer .sg{font-weight:600;color:var(--soft)}
         </div>
       </button>
       <div class="e-body"><div><div class="e-body-in">
-        <div class="e-meta fx">v0.5.93 · Vercel · TypeScript · React · Supabase · CI/CD</div>
+        <div class="e-meta fx">Vercel · TypeScript · React · Supabase · CI/CD</div>
         <p class="e-desc fx">Вебзастосунок, що автоматизує побудову місячного графіка операторів
         кол-центру банку. <b>Замінює ручне складання в Excel.</b></p>
         <div class="mini fx">
@@ -724,7 +732,7 @@ footer .sg{font-weight:600;color:var(--soft)}
         </div>
       </button>
       <div class="e-body"><div><div class="e-body-in">
-        <div class="e-meta fx">v1.8.0 · GitHub Pages · JavaScript · Chart.js · SheetJS</div>
+        <div class="e-meta fx">GitHub Pages · JavaScript · Chart.js · SheetJS</div>
         <p class="e-desc fx">Дашборд портфеля AI-автоматизацій команди: статуси, <b>фінансовий ефект
         у грн/рік</b>, роадмап, експорт звітів. У щоденній експлуатації, періодично оновлюється.</p>
         <div class="mini fx">
@@ -738,7 +746,7 @@ footer .sg{font-weight:600;color:var(--soft)}
           <span>звіт одним кліком</span>
         </div>
         <div class="links fx">
-          <a class="e-link" href="#" data-href="https://kristinaryabtseva-web.github.io/ai-automations-dashboard/" onclick="return lockedOpen(this)">🔒 Відкрити дашборд ↗</a>
+          <a class="e-link" href="#" data-href="https://kristinaryabtseva-web.github.io/ai-automations-dashboard/" onclick="return lockedOpen(this)">🔒 Дашборд автоматизацій ↗</a>
           <button class="shot-btn" onclick="toggleShot(this)">📷 Показати скріншот</button>
         </div>
         <div class="shot-wrap"><div>
@@ -763,7 +771,7 @@ footer .sg{font-weight:600;color:var(--soft)}
         </div>
       </button>
       <div class="e-body"><div><div class="e-body-in">
-        <div class="e-meta fx">v1.29.0 · GitHub Pages · JavaScript · CSV</div>
+        <div class="e-meta fx">GitHub Pages · JavaScript · CSV</div>
         <p class="e-desc fx">Аналітика Jira-беклогу команди для менеджменту: дашборди, епіки,
         динаміка виконання. <b>З одного CSV, без доступів та інтеграцій.</b> У щоденній експлуатації, періодично оновлюється.</p>
         <div class="mini fx">
@@ -776,7 +784,7 @@ footer .sg{font-weight:600;color:var(--soft)}
           <span>дашборди для менеджменту</span>
         </div>
         <div class="links fx">
-          <a class="e-link" href="#" data-href="https://kristinaryabtseva-web.github.io/mad-backlog/" onclick="return lockedOpen(this)">🔒 Відкрити дашборд ↗</a>
+          <a class="e-link" href="#" data-href="https://kristinaryabtseva-web.github.io/mad-backlog/" onclick="return lockedOpen(this)">🔒 Дашборд беклогу ↗</a>
           <button class="shot-btn" onclick="toggleShot(this)">📷 Показати скріншот</button>
         </div>
         <div class="shot-wrap"><div>
@@ -794,6 +802,7 @@ footer .sg{font-weight:600;color:var(--soft)}
   <!-- ДОСЛІДЖЕННЯ -->
   <section class="open" id="research">
     <button class="sec-title" onclick="toggleSec(this)"><span class="n">03</span> Дослідження <span class="s-chev"></span></button>
+    <div class="sec-prev">2 дослідження: AI Report · AI Sandbox</div>
     <div class="sec-body"><div>
     <div class="sec-sub">Разові ресерчі, що завершились презентацією результатів</div>
 
@@ -865,7 +874,8 @@ footer .sg{font-weight:600;color:var(--soft)}
 
   <footer>
     <span class="sg">Христина Рябцева — Product Owner × AI</span>
-    <span>v3.20.0 · створено з Claude Code · 2026</span>
+    <span class="f-note">Ця сторінка — теж продукт: 20+ релізів за один день у парі з Claude Code 🐜</span>
+    <span>v3.21.0 · створено з Claude Code · 2026</span>
   </footer>
 
 </div>
