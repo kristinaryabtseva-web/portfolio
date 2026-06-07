@@ -133,30 +133,6 @@ a{color:var(--blue);text-decoration:none}
 }
 .stat .k{font-size:11px;color:rgba(255,255,255,.6);line-height:1.35}
 
-/* ====== ШВИДКИЙ ЗМІСТ (у обкладинці) ====== */
-.toc{
-  border-top:1px solid rgba(255,255,255,.16);
-  padding:16px 0 20px;
-  display:flex;gap:14px 36px;flex-wrap:wrap;
-  position:relative;z-index:1;
-}
-.toc .grp{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.toc .lbl{
-  font-family:'Space Grotesk',sans-serif;
-  font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
-  color:rgba(255,255,255,.45);
-}
-.toc a{
-  display:inline-flex;align-items:center;gap:7px;
-  font-size:12px;font-weight:500;color:#fff;
-  padding:5px 12px;border:1px solid rgba(255,255,255,.22);border-radius:999px;
-  transition:all .3s var(--ease);
-}
-.toc a:hover{border-color:var(--orange);background:rgba(232,81,26,.18)}
-.toc i{width:7px;height:7px;border-radius:50%;flex:none}
-.d-green{background:#22C55E}
-.d-yellow{background:#F0B100}
-.d-gray{background:#9a9a94}
 .entry{scroll-margin-top:24px}
 
 /* ====== СЕКЦІЇ ====== */
@@ -539,20 +515,6 @@ footer .sg{font-weight:600;color:var(--soft)}
     <div class="stat"><span class="v">100+</span><span class="k">git-комітів —<br>усе версіонується</span></div>
   </div>
 
-  <!-- ШВИДКИЙ ЗМІСТ -->
-  <nav class="toc">
-    <div class="grp">
-      <span class="lbl">Продукти</span>
-      <a href="#graficrobit"><i class="d-yellow"></i>GraficRobit</a>
-      <a href="#aimad"><i class="d-green"></i>AI MAD Dashboard</a>
-      <a href="#backlog"><i class="d-green"></i>MAD Backlog</a>
-    </div>
-    <div class="grp">
-      <span class="lbl">Дослідження</span>
-      <a href="#report"><i class="d-green"></i>AI Report</a>
-      <a href="#sandbox"><i class="d-green"></i>AI Sandbox</a>
-    </div>
-  </nav>
   </div>
 
   <!-- МІНІ-ТАЙМЛАЙН -->
@@ -795,7 +757,7 @@ footer .sg{font-weight:600;color:var(--soft)}
 
   <footer>
     <span class="sg">Христина Рябцева — Product Owner × AI</span>
-    <span>v3.15.0 · створено з Claude Code · 2026</span>
+    <span>v3.16.0 · створено з Claude Code · 2026</span>
   </footer>
 
 </div>
@@ -980,16 +942,6 @@ function expandAll(open){
     if(open && !was) runCU(e);
   });
 }
-// клік у змісті — розгорнути секцію і потрібний запис
-document.querySelectorAll('.toc a').forEach(a=>{
-  a.addEventListener('click',()=>{
-    const t = document.querySelector(a.getAttribute('href'));
-    if(!t) return;
-    const sec = t.closest('section');
-    if(sec && !sec.classList.contains('open')) sec.classList.add('open');
-    if(!t.classList.contains('open')){ t.classList.add('open'); runCU(t); }
-  });
-});
 // перший проєкт відкритий одразу
 window.addEventListener('load',()=>{
   const first = document.querySelector('.entry');
