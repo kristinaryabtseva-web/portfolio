@@ -198,9 +198,11 @@ section{margin-top:36px}
   font-size:12px;line-height:1;color:var(--ink);
   transition:all .45s var(--ease);
 }
+.s-chev::before{content:"⛰️"}
+section.open .s-chev::before{content:"🐜"}
 section.open .s-chev{
-  transform:rotate(180deg);
   background:var(--orange);border-color:var(--orange);color:#fff;
+  transform:scale(1.08);
 }
 .sec-body{
   display:grid;grid-template-rows:0fr;
@@ -635,7 +637,7 @@ footer .sg{font-weight:600;color:var(--soft)}
 
   <!-- ПРОДУКТИ -->
   <section class="open" id="products">
-    <button class="sec-title" onclick="toggleSec(this)"><span class="n">02</span> Продукти й автоматизації <span class="s-chev">🐜</span></button>
+    <button class="sec-title" onclick="toggleSec(this)"><span class="n">02</span> Продукти й автоматизації <span class="s-chev"></span></button>
     <div class="sec-body"><div>
     <div class="sec-sub">Працюють постійно: оптимізують процес або дають цінність щодня</div>
 
@@ -765,7 +767,7 @@ footer .sg{font-weight:600;color:var(--soft)}
 
   <!-- ДОСЛІДЖЕННЯ -->
   <section class="open" id="research">
-    <button class="sec-title" onclick="toggleSec(this)"><span class="n">03</span> Дослідження <span class="s-chev">🐜</span></button>
+    <button class="sec-title" onclick="toggleSec(this)"><span class="n">03</span> Дослідження <span class="s-chev"></span></button>
     <div class="sec-body"><div>
     <div class="sec-sub">Разові ресерчі, що завершились презентацією результатів</div>
 
@@ -837,7 +839,7 @@ footer .sg{font-weight:600;color:var(--soft)}
 
   <footer>
     <span class="sg">Христина Рябцева — Product Owner × AI</span>
-    <span>v3.18.0 · створено з Claude Code · 2026</span>
+    <span>v3.18.1 · створено з Claude Code · 2026</span>
   </footer>
 
 </div>
