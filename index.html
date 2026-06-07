@@ -420,6 +420,13 @@ section:not(.open) .sec-prev{display:block}
   transition:all .3s var(--ease);
 }
 .e-link:hover{background:var(--blue);color:#fff}
+.e-priv{
+  display:inline-block;margin-top:16px;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--soft);
+  padding:9px 14px;border:1px dashed var(--line);border-radius:4px;
+}
 
 /* ====== ПІДХІД ====== */
 .approach{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
@@ -799,7 +806,7 @@ footer .sg{font-weight:600;color:var(--soft)}
           <span>дашборди для менеджменту</span>
         </div>
         <div class="links fx">
-          <a class="e-link" href="#" data-href="https://kristinaryabtseva-web.github.io/mad-backlog/" onclick="return lockedOpen(this)">🔒 Дашборд беклогу ↗</a>
+          <span class="e-priv">🔒 Внутрішній доступ</span>
           <button class="shot-btn" onclick="toggleShot(this)">📷 Показати скріншот</button>
         </div>
         <div class="shot-wrap"><div>
@@ -929,7 +936,7 @@ footer .sg{font-weight:600;color:var(--soft)}
   <footer>
     <span class="sg">Христина Рябцева — Product Owner × AI</span>
     <span class="f-note">Ця сторінка — теж продукт: 20+ релізів за один день у парі з Claude Code 🐜</span>
-    <span>v3.24.3 · створено з Claude Code · 2026</span>
+    <span>v3.25.0 · створено з Claude Code · 2026</span>
   </footer>
 
 </div>
