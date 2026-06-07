@@ -874,10 +874,49 @@ footer .sg{font-weight:600;color:var(--soft)}
     </div></div>
   </section>
 
+  <!-- САМОСТІЙНІ АГЕНТИ -->
+  <section id="agents">
+    <button class="sec-title" onclick="toggleSec(this)"><span class="n">04</span> Самостійні агенти <span class="s-chev"></span></button>
+    <div class="sec-prev">1 агент: перевірка актуальності портфоліо</div>
+    <div class="sec-body"><div>
+    <div class="sec-sub">Автономні AI-агенти, що працюють самі за розкладом — без участі людини</div>
+
+    <article class="entry" id="watcher">
+      <button class="e-head" onclick="toggleEntry(this)">
+        <div class="e-title">
+          <span class="e-no">04.1</span>
+          <h3>Portfolio Watcher</h3>
+          <span class="badge b-dev">Щойно запущено</span>
+        </div>
+        <div class="e-headside">
+          <div class="e-num">1×добу<small>автоперевірка</small></div>
+          <span class="chev">🐜</span>
+        </div>
+      </button>
+      <div class="e-body"><div><div class="e-body-in">
+        <div class="e-meta fx">Claude Agent · GitHub · cron · хмара</div>
+        <p class="e-desc fx">Автономний агент-розклад, що працює у хмарі без участі людини.
+        Щодня перевіряє актуальність цього портфоліо за даними GitHub: звіряє версії проєктів,
+        шукає нові репозиторії та повідомляє власника про розбіжності.</p>
+        <div class="mini fx">
+          <div class="m"><div class="mv" data-cu="1">0</div><div class="mk">запуск щодня · 23:00</div></div>
+          <div class="m"><div class="mv" data-cu="5">0</div><div class="mk">проєктів під наглядом</div></div>
+          <div class="m"><div class="mv">24/7</div><div class="mk">працює у хмарі</div></div>
+        </div>
+        <div class="e-facts fx">
+          <span>повністю автономний — запускається сам</span>
+          <span>лише звітує, нічого не змінює</span>
+          <span>знаходить нові проєкти і пропонує додати</span>
+        </div>
+      </div></div></div>
+    </article>
+    </div></div>
+  </section>
+
   <footer>
     <span class="sg">Христина Рябцева — Product Owner × AI</span>
     <span class="f-note">Ця сторінка — теж продукт: 20+ релізів за один день у парі з Claude Code 🐜</span>
-    <span>v3.22.2 · створено з Claude Code · 2026</span>
+    <span>v3.23.0 · створено з Claude Code · 2026</span>
   </footer>
 
 </div>
@@ -1092,7 +1131,7 @@ function toggleAll(){
   document.getElementById('tAll').textContent = allOpen ? '⊖ згорнути все' : '⊕ розгорнути все';
 }
 function expandAll(open){
-  document.querySelectorAll('#products,#research').forEach(s=>s.classList.toggle('open',open));
+  document.querySelectorAll('#products,#research,#agents').forEach(s=>s.classList.toggle('open',open));
   document.querySelectorAll('.entry').forEach(e=>{
     const was = e.classList.contains('open');
     e.classList.toggle('open',open);
