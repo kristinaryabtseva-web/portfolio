@@ -349,6 +349,53 @@ section.open .sec-body{grid-template-rows:1fr}
 }
 .ap p{margin-top:5px;font-size:12px;color:var(--soft);line-height:1.5}
 
+/* ====== ЗАМОК НА ПОСИЛАННЯ ====== */
+.lock{
+  position:fixed;inset:0;z-index:90;
+  background:rgba(10,10,10,.55);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  display:none;align-items:center;justify-content:center;padding:20px;
+}
+.lock.open{display:flex}
+.lock-card{
+  background:var(--paper);border-radius:14px;
+  padding:30px 28px 26px;max-width:360px;width:100%;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+  text-align:center;
+}
+.lock-card .ic{font-size:30px}
+.lock-card h4{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;
+  margin-top:10px;text-transform:uppercase;letter-spacing:.04em;
+}
+.lock-card p{margin-top:8px;font-size:12.5px;color:var(--soft)}
+.lock-card input{
+  width:100%;margin-top:16px;
+  font-family:'Space Grotesk',sans-serif;font-size:15px;text-align:center;
+  padding:11px 14px;border:1px solid var(--line);border-radius:8px;
+  background:#fff;color:var(--ink);outline:none;
+  transition:border-color .3s var(--ease);
+}
+.lock-card input:focus{border-color:var(--orange)}
+.lock-card input.err{border-color:#dc2626;animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.lock-err{display:none;margin-top:8px;font-size:11.5px;color:#dc2626}
+.lock-err.show{display:block}
+.lock-card .go{
+  width:100%;margin-top:14px;
+  font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:#fff;background:var(--orange);border:none;border-radius:8px;
+  padding:12px;cursor:pointer;
+  transition:background .3s var(--ease);
+}
+.lock-card .go:hover{background:var(--blue)}
+.lock-card .x{
+  margin-top:10px;font-size:11px;color:var(--faint);
+  background:none;border:none;cursor:pointer;
+}
+.lock-card .x:hover{color:var(--ink)}
+
 /* ====== ФУТЕР ====== */
 footer{
   margin-top:40px;padding-top:16px;border-top:2px solid var(--ink);
@@ -624,7 +671,7 @@ footer .sg{font-weight:600;color:var(--soft)}
           <span>звіт одним кліком</span>
         </div>
         <div class="links fx">
-          <a class="e-link" href="https://kristinaryabtseva-web.github.io/ai-automations-dashboard/" target="_blank" rel="noopener">Відкрити дашборд ↗</a>
+          <a class="e-link" href="#" data-href="https://kristinaryabtseva-web.github.io/ai-automations-dashboard/" onclick="return lockedOpen(this)">🔒 Відкрити дашборд ↗</a>
           <button class="shot-btn" onclick="toggleShot(this)">📷 Показати скріншот</button>
         </div>
         <div class="shot-wrap"><div>
@@ -661,7 +708,7 @@ footer .sg{font-weight:600;color:var(--soft)}
           <span>дашборди для менеджменту</span>
         </div>
         <div class="links fx">
-          <a class="e-link" href="https://kristinaryabtseva-web.github.io/mad-backlog/" target="_blank" rel="noopener">Відкрити дашборд ↗</a>
+          <a class="e-link" href="#" data-href="https://kristinaryabtseva-web.github.io/mad-backlog/" onclick="return lockedOpen(this)">🔒 Відкрити дашборд ↗</a>
           <button class="shot-btn" onclick="toggleShot(this)">📷 Показати скріншот</button>
         </div>
         <div class="shot-wrap"><div>
@@ -704,7 +751,7 @@ footer .sg{font-weight:600;color:var(--soft)}
           <div class="m"><div class="mv" data-cu="70" data-suf="+">0</div><div class="mk">категорій · 20+ напрямків</div></div>
         </div>
         <div class="links fx">
-          <a class="e-link" href="https://kristinaryabtseva-web.github.io/ai-report/index.html" target="_blank" rel="noopener">Відкрити звіт ↗</a>
+          <a class="e-link" href="#" data-href="https://kristinaryabtseva-web.github.io/ai-report/index.html" onclick="return lockedOpen(this)">🔒 Відкрити звіт ↗</a>
           <button class="shot-btn" onclick="toggleShot(this)">📷 Показати скріншот</button>
         </div>
         <div class="shot-wrap"><div>
@@ -732,7 +779,7 @@ footer .sg{font-weight:600;color:var(--soft)}
         <p class="e-desc fx">Концепція «ШІ-пісочниці» для банку — безпечного середовища
         для експериментів з AI. Інтерактивний прототип-презентація.</p>
         <div class="links fx">
-          <a class="e-link" href="https://kristinaryabtseva-web.github.io/ai-sandbox-research/" target="_blank" rel="noopener">Відкрити прототип ↗</a>
+          <a class="e-link" href="#" data-href="https://kristinaryabtseva-web.github.io/ai-sandbox-research/" onclick="return lockedOpen(this)">🔒 Відкрити прототип ↗</a>
           <button class="shot-btn" onclick="toggleShot(this)">📷 Показати скріншот</button>
         </div>
         <div class="shot-wrap"><div>
@@ -748,9 +795,22 @@ footer .sg{font-weight:600;color:var(--soft)}
 
   <footer>
     <span class="sg">Христина Рябцева — Product Owner × AI</span>
-    <span>v3.14.0 · створено з Claude Code · 2026</span>
+    <span>v3.15.0 · створено з Claude Code · 2026</span>
   </footer>
 
+</div>
+
+<!-- ====== ЗАМОК ====== -->
+<div class="lock" id="lock">
+  <div class="lock-card">
+    <div class="ic">🔒</div>
+    <h4>Доступ за паролем</h4>
+    <p>Це посилання веде на робочий ресурс. Введіть пароль (достатньо один раз — браузер запам'ятає).</p>
+    <input type="password" id="lockIn" placeholder="Пароль" autocomplete="off">
+    <div class="lock-err" id="lockErr">Невірний пароль, спробуйте ще раз</div>
+    <button class="go" onclick="lockTry()">Відкрити</button>
+    <button class="x" onclick="lockClose()">Скасувати</button>
+  </div>
 </div>
 
 <!-- ====== КЕЙНОУТ (для виступу зі сцени) ====== -->
@@ -866,6 +926,45 @@ function toggleEntry(btn){
 function toggleSec(btn){
   btn.closest('section').classList.toggle('open');
 }
+// ====== ЗАМОК НА ПОСИЛАННЯ ======
+const LOCK_HASH = '271b644007d1fa415cd91c6c8187d232cde3ff05890a9f801a4062866b7882d2';
+let lockTarget = null;
+async function sha256(s){
+  const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
+  return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
+}
+function lockedOpen(a){
+  const url = a.dataset.href;
+  if(localStorage.getItem('pf_key') === LOCK_HASH){
+    window.open(url, '_blank', 'noopener');
+    return false;
+  }
+  lockTarget = url;
+  document.getElementById('lockErr').classList.remove('show');
+  document.getElementById('lockIn').value = '';
+  document.getElementById('lock').classList.add('open');
+  setTimeout(()=>document.getElementById('lockIn').focus(), 60);
+  return false;
+}
+function lockClose(){ document.getElementById('lock').classList.remove('open'); }
+async function lockTry(){
+  const inp = document.getElementById('lockIn');
+  const ok = (await sha256(inp.value.trim())) === LOCK_HASH;
+  if(ok){
+    localStorage.setItem('pf_key', LOCK_HASH);
+    lockClose();
+    if(lockTarget) window.open(lockTarget, '_blank', 'noopener');
+  } else {
+    inp.classList.remove('err'); void inp.offsetWidth; inp.classList.add('err');
+    document.getElementById('lockErr').classList.add('show');
+  }
+}
+document.getElementById('lockIn').addEventListener('keydown', e=>{ if(e.key==='Enter') lockTry(); });
+document.getElementById('lock').addEventListener('click', e=>{ if(e.target.id==='lock') lockClose(); });
+document.addEventListener('keydown', e=>{
+  if(e.key==='Escape' && document.getElementById('lock').classList.contains('open')) lockClose();
+});
+
 // показати/сховати скріншот
 function toggleShot(btn){
   const w = btn.closest('.e-body-in').querySelector('.shot-wrap');
