@@ -271,9 +271,25 @@ section.open .sec-body{grid-template-rows:1fr}
 }
 .pbar .tr i.y{background:#F0B100}
 .entry.open .pbar .tr i{width:var(--w)}
-/* скріншот продукту */
+/* скріншот продукту — ховається за кнопкою */
+.shot-btn{
+  display:inline-block;margin-top:14px;margin-right:10px;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--orange);background:none;
+  border:1px solid var(--orange);border-radius:4px;
+  padding:8px 15px;cursor:pointer;
+  transition:all .3s var(--ease);
+}
+.shot-btn:hover{background:var(--orange);color:#fff}
+.shot-wrap{
+  display:grid;grid-template-rows:0fr;
+  transition:grid-template-rows .55s var(--ease);
+}
+.shot-wrap>div{overflow:hidden}
+.shot-wrap.open{grid-template-rows:1fr}
 .shot{
-  margin-top:16px;
+  margin-top:12px;
   border:1px solid var(--line);border-radius:10px;overflow:hidden;
   background:#fff;
 }
@@ -340,11 +356,11 @@ footer .sg{font-weight:600;color:var(--soft)}
 @media print{
   body{background:#fff;font-size:12.5px}
   .page{padding:0;max-width:none}
-  .kn-btn,.keynote,.chev,.s-chev,.tools{display:none !important}
+  .kn-btn,.keynote,.chev,.s-chev,.tools,.shot-btn{display:none !important}
   .masthead{border-radius:0}
   .entry{break-inside:avoid}
-  /* при друку всі блоки розгорнуті */
-  .e-body,.sec-body{grid-template-rows:1fr !important}
+  /* при друку всі блоки розгорнуті, скріншоти видимі */
+  .e-body,.sec-body,.shot-wrap{grid-template-rows:1fr !important}
   .fx{opacity:1 !important;transform:none !important}
   .pbar .tr i{width:var(--w) !important}
   section{margin-top:22px}
@@ -549,10 +565,13 @@ footer .sg{font-weight:600;color:var(--soft)}
         <div class="e-meta fx">v0.5.93 · Vercel · TypeScript · React · Supabase · CI/CD</div>
         <p class="e-desc fx">Вебзастосунок, що автоматизує побудову місячного графіка операторів
         кол-центру банку. <b>Замінює ручне складання в Excel.</b></p>
-        <div class="shot fx">
-          <img src="images/graficrobit.png" alt="GraficRobit — редактор графіка з перевірками в реальному часі" loading="lazy">
-          <div class="shot-cap">Редактор графіка: 111 операторів, перевірки правил у реальному часі, покриття по годинах. Ідентифікатори приховано.</div>
-        </div>
+        <button class="shot-btn fx" onclick="toggleShot(this)">📷 Показати скріншот</button>
+        <div class="shot-wrap"><div>
+          <div class="shot">
+            <img src="images/graficrobit.png" alt="GraficRobit — редактор графіка з перевірками в реальному часі" loading="lazy">
+            <div class="shot-cap">Редактор графіка: 111 операторів, перевірки правил у реальному часі, покриття по годинах. Ідентифікатори приховано.</div>
+          </div>
+        </div></div>
         <div class="mini fx">
           <div class="m"><div class="mv" data-cu="100" data-suf="+">0</div><div class="mk">операторів</div></div>
           <div class="m"><div class="mv" data-cu="44">0</div><div class="mk">типи змін</div></div>
@@ -587,6 +606,13 @@ footer .sg{font-weight:600;color:var(--soft)}
         <div class="e-meta fx">v1.8.0 · GitHub Pages · JavaScript · Chart.js · SheetJS</div>
         <p class="e-desc fx">Дашборд портфеля AI-автоматизацій команди: статуси, <b>фінансовий ефект
         у грн/рік</b>, роадмап, експорт звітів. У щоденній експлуатації, періодично оновлюється.</p>
+        <button class="shot-btn fx" onclick="toggleShot(this)">📷 Показати скріншот</button>
+        <div class="shot-wrap"><div>
+          <div class="shot">
+            <img src="images/aimad.png" alt="AI MAD Dashboard — огляд портфеля автоматизацій" loading="lazy">
+            <div class="shot-cap">Огляд портфеля: KPI, статуси, інструменти. Фінансові показники та лічильники приховано.</div>
+          </div>
+        </div></div>
         <div class="mini fx">
           <div class="m"><div class="mv" data-cu="8" data-suf="+">0</div><div class="mk">релізів</div></div>
           <div class="m"><div class="mv" data-cu="100" data-suf="%">0</div><div class="mk">обчислень у браузері</div></div>
@@ -686,7 +712,7 @@ footer .sg{font-weight:600;color:var(--soft)}
 
   <footer>
     <span class="sg">Христина Рябцева — Product Owner × AI</span>
-    <span>v3.9.0 · створено з Claude Code · 2026</span>
+    <span>v3.10.0 · створено з Claude Code · 2026</span>
   </footer>
 
 </div>
@@ -803,6 +829,12 @@ function toggleEntry(btn){
 // згортання цілої секції
 function toggleSec(btn){
   btn.closest('section').classList.toggle('open');
+}
+// показати/сховати скріншот
+function toggleShot(btn){
+  const w = btn.nextElementSibling;
+  const open = w.classList.toggle('open');
+  btn.textContent = open ? '✕ Сховати скріншот' : '📷 Показати скріншот';
 }
 // розгорнути / згорнути все
 function expandAll(open){
