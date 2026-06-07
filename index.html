@@ -669,7 +669,7 @@ footer .sg{font-weight:600;color:var(--soft)}
   </div>
 
   <!-- ПРОДУКТИ -->
-  <section class="open" id="products">
+  <section id="products">
     <button class="sec-title" onclick="toggleSec(this)"><span class="n">02</span> Продукти й автоматизації <span class="s-chev"></span></button>
     <div class="sec-prev">3 рішення: GraficRobit · AI MAD Dashboard · MAD Backlog</div>
     <div class="sec-body"><div>
@@ -800,7 +800,7 @@ footer .sg{font-weight:600;color:var(--soft)}
   </section>
 
   <!-- ДОСЛІДЖЕННЯ -->
-  <section class="open" id="research">
+  <section id="research">
     <button class="sec-title" onclick="toggleSec(this)"><span class="n">03</span> Дослідження <span class="s-chev"></span></button>
     <div class="sec-prev">2 дослідження: AI Report · AI Sandbox</div>
     <div class="sec-body"><div>
@@ -875,7 +875,7 @@ footer .sg{font-weight:600;color:var(--soft)}
   <footer>
     <span class="sg">Христина Рябцева — Product Owner × AI</span>
     <span class="f-note">Ця сторінка — теж продукт: 20+ релізів за один день у парі з Claude Code 🐜</span>
-    <span>v3.21.1 · створено з Claude Code · 2026</span>
+    <span>v3.21.2 · створено з Claude Code · 2026</span>
   </footer>
 
 </div>
@@ -1097,11 +1097,7 @@ function expandAll(open){
     if(open && !was) runCU(e);
   });
 }
-// перший проєкт відкритий одразу
-window.addEventListener('load',()=>{
-  const first = document.querySelector('.entry');
-  if(first){ first.classList.add('open'); runCU(first); }
-});
+
 
 // ====== КЕЙНОУТ ======
 const kn = document.getElementById('keynote');
