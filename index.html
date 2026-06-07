@@ -806,7 +806,7 @@ footer .sg{font-weight:600;color:var(--soft)}
           <span>дашборди для менеджменту</span>
         </div>
         <div class="links fx">
-          <span class="e-priv">🔒 Внутрішній доступ</span>
+          <span class="e-priv" id="backlogAccess">🔒 Внутрішній доступ</span>
           <button class="shot-btn" onclick="toggleShot(this)">📷 Показати скріншот</button>
         </div>
         <div class="shot-wrap"><div>
@@ -936,7 +936,7 @@ footer .sg{font-weight:600;color:var(--soft)}
   <footer>
     <span class="sg">Христина Рябцева — Product Owner × AI</span>
     <span class="f-note">Ця сторінка — теж продукт: 20+ релізів за один день у парі з Claude Code 🐜</span>
-    <span>v3.25.0 · створено з Claude Code · 2026</span>
+    <span>v3.26.0 · створено з Claude Code · 2026</span>
   </footer>
 
 </div>
@@ -1097,6 +1097,12 @@ const tlIO = new IntersectionObserver((es)=>{
   es.forEach(e=>{ if(e.isIntersecting){ tlPlay(); tlIO.disconnect(); } });
 },{threshold:.4});
 tlIO.observe(document.getElementById('tl2'));
+
+// ====== РЕЖИМ ВЛАСНИКА (?me) — локальна кнопка беклогу для демо ======
+if(/[?&]me\b/i.test(location.search)){
+  const el = document.getElementById('backlogAccess');
+  if(el) el.outerHTML = '<a class="e-link" href="http://127.0.0.1:8765/" target="_blank" rel="noopener">📊 Відкрити беклог (локально) ↗</a>';
+}
 
 // ====== ЗАМОК НА ПОСИЛАННЯ ======
 const LOCK_HASH = '271b644007d1fa415cd91c6c8187d232cde3ff05890a9f801a4062866b7882d2';
