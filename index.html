@@ -147,17 +147,17 @@ a{color:var(--blue);text-decoration:none}
 }
 .tl-replay:hover{color:var(--orange);border-color:var(--orange);transform:rotate(180deg)}
 
-/* ====== ПАНЕЛЬ РОЗГОРНУТИ/ЗГОРНУТИ ====== */
-.tools{display:flex;justify-content:flex-end;gap:8px;margin-top:26px;margin-bottom:-14px}
+/* ====== ПЕРЕМИКАЧ РОЗГОРНУТИ/ЗГОРНУТИ ====== */
+.tools{display:flex;justify-content:flex-end;margin-top:16px;margin-bottom:-26px}
 .t-btn{
-  font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:600;
-  letter-spacing:.1em;text-transform:uppercase;
-  color:var(--soft);background:none;
-  border:1px solid var(--line);border-radius:999px;
-  padding:6px 13px;cursor:pointer;
+  font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--faint);background:none;border:none;
+  padding:4px 2px;cursor:pointer;
+  border-bottom:1px dashed transparent;
   transition:all .3s var(--ease);
 }
-.t-btn:hover{color:var(--orange);border-color:var(--orange)}
+.t-btn:hover{color:var(--orange);border-bottom-color:var(--orange)}
 
 /* ====== СТРІЧКА ЦИФР (у обкладинці) ====== */
 .stats{
@@ -658,8 +658,7 @@ footer .sg{font-weight:600;color:var(--soft)}
 
   <!-- РОЗГОРНУТИ / ЗГОРНУТИ ВСЕ -->
   <div class="tools">
-    <button class="t-btn" onclick="expandAll(true)">⊕ Розгорнути все</button>
-    <button class="t-btn" onclick="expandAll(false)">⊖ Згорнути все</button>
+    <button class="t-btn" id="tAll" onclick="toggleAll()">⊕ розгорнути все</button>
   </div>
 
   <!-- ПРОДУКТИ -->
@@ -866,7 +865,7 @@ footer .sg{font-weight:600;color:var(--soft)}
 
   <footer>
     <span class="sg">Христина Рябцева — Product Owner × AI</span>
-    <span>v3.19.1 · створено з Claude Code · 2026</span>
+    <span>v3.20.0 · створено з Claude Code · 2026</span>
   </footer>
 
 </div>
@@ -1073,7 +1072,13 @@ function toggleShot(btn){
   const open = w.classList.toggle('open');
   btn.textContent = open ? '✕ Сховати скріншот' : '📷 Показати скріншот';
 }
-// розгорнути / згорнути все
+// розгорнути / згорнути все — одна кнопка-перемикач
+let allOpen = false;
+function toggleAll(){
+  allOpen = !allOpen;
+  expandAll(allOpen);
+  document.getElementById('tAll').textContent = allOpen ? '⊖ згорнути все' : '⊕ розгорнути все';
+}
 function expandAll(open){
   document.querySelectorAll('#products,#research').forEach(s=>s.classList.toggle('open',open));
   document.querySelectorAll('.entry').forEach(e=>{
