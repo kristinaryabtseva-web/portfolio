@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Христина Рябцева — Портфоліо проєктів</title>
+<meta name="description" content="Портфоліо Product Owner × AI: 5 проєктів, створених у парі з Claude Code — продукти, автоматизації та дослідження.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Христина Рябцева — Портфоліо проєктів × AI">
+<meta property="og:description" content="5 проєктів за 3 місяці без класичної команди розробки: продукти в експлуатації, автоматизації, дослідження.">
+<meta property="og:url" content="https://kristinaryabtseva-web.github.io/portfolio/">
+<meta property="og:locale" content="uk_UA">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%23E8511A'/%3E%3Ctext x='32' y='45' font-family='Arial,sans-serif' font-size='38' font-weight='bold' fill='white' text-anchor='middle'%3E%D0%A5%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBFAF7;
+  --ink:#141414;
+  --soft:#5c5c58;
+  --faint:#9a9a94;
+  --line:#e4e2da;
+  --orange:#E8511A;
+  --blue:#1A0DBF;
+  --ease:cubic-bezier(.32,.72,0,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+::selection{background:var(--orange);color:#fff}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif;
+  font-size:14.5px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.sg{font-family:'Space Grotesk',sans-serif}
+a{color:var(--blue);text-decoration:none}
+
+.page{max-width:860px;margin:0 auto;padding:40px 28px 40px}
+
+/* ====== ОБКЛАДИНКА (темна шапка) ====== */
+.masthead{
+  background:linear-gradient(135deg,#0A0A0A 0%,#10094f 60%,var(--blue) 135%);
+  color:#fff;
+  border-radius:10px;
+  padding:34px 34px 6px;
+  position:relative;overflow:hidden;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+}
+.masthead::after{
+  content:"//";
+  position:absolute;top:18px;right:120px;
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:120px;
+  color:transparent;-webkit-text-stroke:1px rgba(232,81,26,.5);
+  line-height:1;pointer-events:none;
+}
+.head{
+  display:flex;justify-content:space-between;align-items:flex-start;gap:24px;
+  padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.16);
+  position:relative;z-index:1;
+}
+.head h1{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:30px;letter-spacing:-.01em;line-height:1.1;text-transform:uppercase;
+}
+.head h1 span{color:var(--orange)}
+.head .role{
+  margin-top:6px;font-size:13.5px;color:rgba(255,255,255,.6);font-weight:500;
+}
+.head .intro{
+  margin-top:14px;font-size:13.5px;color:rgba(255,255,255,.72);max-width:520px;
+}
+.head .intro b{color:#fff;font-weight:600}
+.kn-btn{
+  flex:none;
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:#fff;background:var(--orange);
+  border:none;
+  padding:12px 18px;cursor:pointer;
+  box-shadow:4px 4px 0 rgba(0,0,0,.35);
+  transition:all .3s var(--ease);
+  white-space:nowrap;
+}
+.kn-btn:hover{transform:translate(-1px,-1px);box-shadow:6px 6px 0 rgba(0,0,0,.4)}
+.kn-btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(0,0,0,.4)}
+.hbtns{display:flex;flex-direction:column;gap:10px;flex:none}
+.kn-btn.pdf{background:none;border:1px solid rgba(255,255,255,.4);box-shadow:none}
+.kn-btn.pdf:hover{border-color:var(--orange);color:var(--orange);transform:none}
+
+/* ====== МІНІ-ТАЙМЛАЙН ====== */
+.tl{
+  display:flex;align-items:stretch;
+  margin-top:14px;
+  border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff;
+}
+.tn{flex:1;padding:10px 14px 11px;border-left:1px solid var(--line)}
+.tn:first-child{border-left:none}
+.td{
+  display:block;
+  font-family:'Space Grotesk',sans-serif;font-size:9.5px;font-weight:700;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--orange);
+}
+.tt{display:block;font-size:11.5px;color:var(--soft);margin-top:3px;font-weight:500}
+
+/* ====== ПАНЕЛЬ РОЗГОРНУТИ/ЗГОРНУТИ ====== */
+.tools{display:flex;justify-content:flex-end;gap:8px;margin-top:26px;margin-bottom:-14px}
+.t-btn{
+  font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--soft);background:none;
+  border:1px solid var(--line);border-radius:999px;
+  padding:6px 13px;cursor:pointer;
+  transition:all .3s var(--ease);
+}
+.t-btn:hover{color:var(--orange);border-color:var(--orange)}
+
+/* ====== СТРІЧКА ЦИФР (у обкладинці) ====== */
+.stats{
+  display:flex;flex-wrap:wrap;
+  position:relative;z-index:1;
+}
+.stat{
+  flex:1;min-width:150px;
+  padding:18px 18px 20px 0;
+  display:flex;align-items:baseline;gap:10px;
+}
+.stat + .stat{padding-left:18px;border-left:1px solid rgba(255,255,255,.16)}
+.stat .v{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:28px;letter-spacing:-.01em;color:var(--orange);
+}
+.stat .k{font-size:11px;color:rgba(255,255,255,.6);line-height:1.35}
+
+/* ====== ШВИДКИЙ ЗМІСТ (у обкладинці) ====== */
+.toc{
+  border-top:1px solid rgba(255,255,255,.16);
+  padding:16px 0 20px;
+  display:flex;gap:14px 36px;flex-wrap:wrap;
+  position:relative;z-index:1;
+}
+.toc .grp{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.toc .lbl{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.45);
+}
+.toc a{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:12px;font-weight:500;color:#fff;
+  padding:5px 12px;border:1px solid rgba(255,255,255,.22);border-radius:999px;
+  transition:all .3s var(--ease);
+}
+.toc a:hover{border-color:var(--orange);background:rgba(232,81,26,.18)}
+.toc i{width:7px;height:7px;border-radius:50%;flex:none}
+.d-green{background:#22C55E}
+.d-yellow{background:#F0B100}
+.d-gray{background:#9a9a94}
+.entry{scroll-margin-top:24px}
+
+/* ====== СЕКЦІЇ ====== */
+section{margin-top:36px}
+.sec-title{
+  display:flex;align-items:center;gap:12px;
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink);
+  margin-bottom:6px;
+  width:100%;background:none;border:none;cursor:pointer;text-align:left;
+  padding:0;
+}
+.sec-title::after{order:1}
+.s-chev{
+  order:2;
+  width:26px;height:26px;flex:none;
+  border:1px solid var(--ink);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;color:var(--ink);
+  transition:all .45s var(--ease);
+}
+section.open .s-chev{
+  transform:rotate(180deg);
+  background:var(--orange);border-color:var(--orange);color:#fff;
+}
+.sec-body{
+  display:grid;grid-template-rows:0fr;
+  transition:grid-template-rows .55s var(--ease);
+}
+.sec-body>div{overflow:hidden}
+section.open .sec-body{grid-template-rows:1fr}
+.sec-title .n{
+  background:var(--orange);color:#fff;
+  padding:3px 8px;border-radius:3px;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+}
+.sec-title::after{content:"";flex:1;height:2px;background:var(--ink);opacity:.85}
+.sec-sub{font-size:12px;color:var(--faint);margin-bottom:18px}
+
+/* ====== ЗАПИС-ПРОЄКТ (згортається) ====== */
+.entry{
+  border-bottom:1px solid var(--line);
+}
+.entry:last-child{border-bottom:none}
+.e-head{
+  width:100%;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:15px 6px;
+  background:none;border:none;cursor:pointer;text-align:left;
+  font-family:inherit;color:inherit;
+  transition:background .3s var(--ease);
+}
+.e-head:hover{background:rgba(232,81,26,.05)}
+.e-title{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.e-title h3{
+  font-family:'Space Grotesk',sans-serif;font-weight:600;
+  font-size:17px;letter-spacing:-.005em;
+}
+.e-headside{display:flex;align-items:center;gap:18px;flex:none}
+.chev{
+  width:28px;height:28px;flex:none;
+  border:1px solid var(--line);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;color:var(--soft);
+  transition:all .45s var(--ease);
+}
+.entry.open .chev{
+  transform:rotate(180deg);
+  background:var(--orange);border-color:var(--orange);color:#fff;
+}
+.e-body{
+  display:grid;grid-template-rows:0fr;
+  transition:grid-template-rows .55s var(--ease);
+}
+.e-body>div{overflow:hidden}
+.entry.open .e-body{grid-template-rows:1fr}
+.e-body-in{padding:0 6px 20px}
+/* елементи з'являються каскадом при розгортанні */
+.fx{opacity:0;transform:translateY(14px);
+  transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.entry.open .fx{opacity:1;transform:translateY(0)}
+.entry.open .fx:nth-child(1){transition-delay:.08s}
+.entry.open .fx:nth-child(2){transition-delay:.16s}
+.entry.open .fx:nth-child(3){transition-delay:.24s}
+.entry.open .fx:nth-child(4){transition-delay:.32s}
+.entry.open .fx:nth-child(5){transition-delay:.4s}
+.entry.open .fx:nth-child(6){transition-delay:.48s}
+/* міні-картки з лічильниками */
+.mini{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.mini .m{
+  flex:1;min-width:110px;
+  background:#fff;border:1px solid var(--line);border-radius:8px;
+  padding:12px 14px;
+}
+.mini .mv{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:20px;color:var(--orange);letter-spacing:-.01em;
+}
+.mini .mk{font-size:10px;color:var(--faint);margin-top:3px;text-transform:uppercase;letter-spacing:.05em;line-height:1.3}
+/* прогрес-бар */
+.pbar{margin-top:14px;max-width:420px}
+.pbar .pl{display:flex;justify-content:space-between;font-size:11px;color:var(--soft);margin-bottom:5px}
+.pbar .pl b{color:var(--ink)}
+.pbar .tr{height:6px;background:var(--line);border-radius:99px;overflow:hidden}
+.pbar .tr i{
+  display:block;height:100%;width:0;border-radius:99px;
+  background:#16A34A;
+  transition:width 1s var(--ease) .3s;
+}
+.pbar .tr i.y{background:#F0B100}
+.entry.open .pbar .tr i{width:var(--w)}
+.badge{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  padding:3px 9px;border-radius:2px;
+}
+/* світлофор: зелений = експлуатація, жовтий = розробка, сірий = концепція */
+.b-prod{background:#16A34A;color:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.b-dev{background:#F0B100;color:#141414;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.b-res{background:#9a9a94;color:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.e-meta{
+  font-size:11.5px;color:var(--faint);
+  font-family:'Space Grotesk',sans-serif;letter-spacing:.03em;
+}
+.e-desc{margin-top:10px;font-size:13.5px;color:var(--soft);max-width:600px}
+.e-desc b{color:var(--ink);font-weight:600}
+.e-facts{
+  margin-top:12px;
+  display:flex;flex-wrap:wrap;gap:4px 0;
+  font-size:12.5px;color:var(--soft);
+}
+.e-facts span{display:inline-flex;align-items:baseline}
+.e-facts span+span::before{content:"·";margin:0 9px;color:var(--orange);font-weight:700}
+.e-facts b{color:var(--ink);font-weight:600;margin-right:4px}
+.e-num{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:22px;color:var(--orange);letter-spacing:-.01em;line-height:1;
+  text-align:right;
+}
+.e-num small{display:block;font-size:9.5px;color:var(--faint);font-weight:500;letter-spacing:.06em;text-transform:uppercase;margin-top:4px}
+.e-link{
+  display:inline-block;margin-top:16px;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:#fff;background:var(--orange);
+  padding:9px 16px;border-radius:4px;
+  transition:all .3s var(--ease);
+}
+.e-link:hover{background:var(--blue);color:#fff}
+
+/* ====== ПІДХІД ====== */
+.approach{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.ap .n{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;color:var(--orange);
+}
+.ap h4{
+  font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13.5px;margin-top:4px;
+}
+.ap p{margin-top:5px;font-size:12px;color:var(--soft);line-height:1.5}
+
+/* ====== ФУТЕР ====== */
+footer{
+  margin-top:40px;padding-top:16px;border-top:2px solid var(--ink);
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  font-size:11px;color:var(--faint);
+}
+footer .sg{font-weight:600;color:var(--soft)}
+
+/* ====== ДРУК / PDF ====== */
+@media print{
+  body{background:#fff;font-size:12.5px}
+  .page{padding:0;max-width:none}
+  .kn-btn,.keynote,.chev,.s-chev,.tools{display:none !important}
+  .masthead{border-radius:0}
+  .entry{break-inside:avoid}
+  /* при друку всі блоки розгорнуті */
+  .e-body,.sec-body{grid-template-rows:1fr !important}
+  .fx{opacity:1 !important;transform:none !important}
+  .pbar .tr i{width:var(--w) !important}
+  section{margin-top:22px}
+}
+
+/* ====== МОБІЛЬНА ====== */
+@media(max-width:680px){
+  .page{padding:20px 14px}
+  .masthead{padding:24px 20px 2px}
+  .masthead::after{display:none}
+  .head{flex-direction:column}
+  .stat{min-width:46%}
+  .stat:nth-child(odd){padding-left:0;border-left:none}
+  .e-head{flex-wrap:wrap;gap:10px}
+  .e-headside{width:100%;justify-content:space-between;flex-direction:row-reverse}
+  .e-num{text-align:left}
+  .hbtns{flex-direction:row;width:100%}
+  .tl{flex-wrap:wrap}
+  .tn{min-width:50%;border-top:1px solid var(--line)}
+  .tn:nth-child(-n+2){border-top:none}
+  .tn:nth-child(odd){border-left:none}
+  .approach{grid-template-columns:1fr}
+}
+
+/* ====== КЕЙНОУТ (повноекранний, для сцени) ====== */
+.keynote{
+  position:fixed;inset:0;z-index:100;
+  background:linear-gradient(135deg,#0A0A0A 0%,#0d0a4a 55%,#1A0DBF 140%);
+  color:#fff;display:none;
+}
+.keynote.open{display:block}
+.kn-progress{position:absolute;top:0;left:0;height:3px;background:var(--orange);width:0;transition:width .5s var(--ease);z-index:5}
+.kn-close{
+  position:absolute;top:22px;right:26px;z-index:5;
+  font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:.15em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);background:none;border:1px solid rgba(255,255,255,.18);
+  padding:10px 16px;cursor:pointer;transition:all .35s var(--ease);
+}
+.kn-close:hover{color:#fff;border-color:var(--orange)}
+.kn-counter{position:absolute;bottom:26px;right:30px;z-index:5;
+  font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;
+  color:rgba(255,255,255,.4);letter-spacing:.1em}
+.kn-counter b{color:var(--orange)}
+.kn-hint{position:absolute;bottom:26px;left:30px;z-index:5;
+  font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.12em;text-transform:uppercase}
+.kn-nav{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:5;
+  width:54px;height:54px;font-size:20px;color:#fff;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);
+  cursor:pointer;transition:all .35s var(--ease);
+}
+.kn-nav:hover{background:var(--orange);border-color:var(--orange)}
+.kn-prev{left:26px}.kn-next{right:26px}
+.kn-slide{
+  position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
+  padding:0 max(8vw,90px);
+  opacity:0;visibility:hidden;transform:translateY(40px);
+  transition:opacity .6s var(--ease),transform .6s var(--ease),visibility .6s;
+}
+.kn-slide.act{opacity:1;visibility:visible;transform:translateY(0)}
+.kn-slide .tag{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--orange);margin-bottom:30px;display:flex;align-items:center;gap:14px;
+}
+.kn-slide .tag::before{content:"";width:40px;height:2px;background:var(--orange)}
+.kn-slide h2{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(34px,5.8vw,78px);
+  line-height:1.04;letter-spacing:-.02em;text-transform:uppercase;max-width:1000px;
+}
+.kn-slide h2 .o{color:var(--orange)}
+.kn-slide h2 .hl{color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.8)}
+.kn-slide .big{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(80px,16vw,220px);line-height:.95;letter-spacing:-.03em;color:var(--orange);
+}
+.kn-slide .sub{margin-top:30px;font-size:clamp(15px,1.6vw,20px);
+  color:rgba(255,255,255,.62);max-width:640px;line-height:1.6}
+.kn-slide .sub b{color:#fff}
+.kn-row{display:flex;gap:clamp(30px,6vw,90px);margin-top:46px;flex-wrap:wrap}
+.kn-stat .v{font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(38px,5vw,66px);line-height:1;color:#fff}
+.kn-stat .v em{font-style:normal;color:var(--orange)}
+.kn-stat .k{margin-top:10px;font-size:12.5px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em}
+.kn-qr{margin-top:44px;display:flex;align-items:center;gap:20px}
+.kn-qr img{width:132px;height:132px;border-radius:10px;background:#fff;padding:8px}
+.kn-qr span{
+  font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.55);line-height:1.6;
+}
+@media(max-width:768px){
+  .kn-slide{padding:0 24px}
+  .kn-nav{display:none}
+  .kn-hint{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ОБКЛАДИНКА -->
+  <div class="masthead">
+  <header class="head">
+    <div>
+      <h1>Христина Рябцева<span>.</span></h1>
+      <div class="role">Product Owner команди автоматизації процесів — Портфоліо проєктів, 2026</div>
+      <p class="intro">Будую робочі продукти у парі з <b>Claude Code</b> — без класичної команди
+      розробки. Формулюю вимоги, керую якістю та релізами; AI виконує роль розробника.</p>
+    </div>
+    <div class="hbtns">
+      <button class="kn-btn" onclick="knOpen()">▶ Презентація</button>
+      <button class="kn-btn pdf" onclick="window.print()">↓ Зберегти PDF</button>
+    </div>
+  </header>
+
+  <!-- ЦИФРИ -->
+  <div class="stats">
+    <div class="stat"><span class="v">5</span><span class="k">проєктів —<br>3 продукти + 2 дослідження</span></div>
+    <div class="stat"><span class="v">5</span><span class="k">рішень живуть онлайн<br>Vercel · GitHub Pages</span></div>
+    <div class="stat"><span class="v">178</span><span class="k">зелених автотестів<br>у найбільшому продукті</span></div>
+    <div class="stat"><span class="v">100+</span><span class="k">git-комітів —<br>усе версіонується</span></div>
+  </div>
+
+  <!-- ШВИДКИЙ ЗМІСТ -->
+  <nav class="toc">
+    <div class="grp">
+      <span class="lbl">Продукти</span>
+      <a href="#graficrobit"><i class="d-yellow"></i>GraficRobit</a>
+      <a href="#aimad"><i class="d-green"></i>AI MAD Dashboard</a>
+      <a href="#backlog"><i class="d-green"></i>MAD Backlog</a>
+    </div>
+    <div class="grp">
+      <span class="lbl">Дослідження</span>
+      <a href="#report"><i class="d-green"></i>AI Report</a>
+      <a href="#sandbox"><i class="d-green"></i>AI Sandbox</a>
+    </div>
+  </nav>
+  </div>
+
+  <!-- МІНІ-ТАЙМЛАЙН -->
+  <div class="tl">
+    <div class="tn"><span class="td">Квітень 2026</span><span class="tt">MAD Backlog — старт</span></div>
+    <div class="tn"><span class="td">Травень 2026</span><span class="tt">AI Report · AI Sandbox</span></div>
+    <div class="tn"><span class="td">Травень — червень</span><span class="tt">GraficRobit — 90+ релізів</span></div>
+    <div class="tn"><span class="td">Червень 2026</span><span class="tt">AI MAD Dashboard</span></div>
+  </div>
+
+  <!-- ПІДХІД -->
+  <section>
+    <div class="sec-title"><span class="n">01</span> Підхід</div>
+    <div class="approach">
+      <div class="ap">
+        <div class="n">01</div>
+        <h4>Вимоги як у продукту</h4>
+        <p>Бізнес-вимоги, специфікації, user guide — документація пишеться разом з кодом.</p>
+      </div>
+      <div class="ap">
+        <div class="n">02</div>
+        <h4>Якість через процес</h4>
+        <p>Версіонування, автотести, code review, журнал розробки. Жодного «якось працює».</p>
+      </div>
+      <div class="ap">
+        <div class="n">03</div>
+        <h4>Реальні користувачі</h4>
+        <p>Живі графіки, справжній беклог, справжній фінансовий ефект — не демо-дані.</p>
+      </div>
+      <div class="ap">
+        <div class="n">04</div>
+        <h4>AI-агенти в розробці</h4>
+        <p>Субагенти долучаються до code review, аудиту коду й тестування алгоритмів.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- РОЗГОРНУТИ / ЗГОРНУТИ ВСЕ -->
+  <div class="tools">
+    <button class="t-btn" onclick="expandAll(true)">⊕ Розгорнути все</button>
+    <button class="t-btn" onclick="expandAll(false)">⊖ Згорнути все</button>
+  </div>
+
+  <!-- ПРОДУКТИ -->
+  <section class="open" id="products">
+    <button class="sec-title" onclick="toggleSec(this)"><span class="n">02</span> Продукти й автоматизації <span class="s-chev">▼</span></button>
+    <div class="sec-body"><div>
+    <div class="sec-sub">Працюють постійно: оптимізують процес або дають цінність щодня</div>
+
+    <article class="entry" id="graficrobit">
+      <button class="e-head" onclick="toggleEntry(this)">
+        <div class="e-title">
+          <h3>GraficRobit</h3>
+          <span class="badge b-dev">Розробка · тестування</span>
+        </div>
+        <div class="e-headside">
+          <div class="e-num">90+<small>релізів · v0.5.93</small></div>
+          <span class="chev">▼</span>
+        </div>
+      </button>
+      <div class="e-body"><div><div class="e-body-in">
+        <div class="e-meta fx">v0.5.93 · Vercel · TypeScript · React · Supabase · CI/CD</div>
+        <p class="e-desc fx">Вебзастосунок, що автоматизує побудову місячного графіка операторів
+        кол-центру банку. <b>Замінює ручне складання в Excel.</b></p>
+        <div class="mini fx">
+          <div class="m"><div class="mv" data-cu="100" data-suf="+">0</div><div class="mk">операторів</div></div>
+          <div class="m"><div class="mv" data-cu="44">0</div><div class="mk">типи змін</div></div>
+          <div class="m"><div class="mv" data-cu="16">0</div><div class="mk">правил валідації</div></div>
+          <div class="m"><div class="mv" data-cu="90" data-suf="+">0</div><div class="mk">релізів</div></div>
+          <div class="m"><div class="mv" data-cu="4">0</div><div class="mk">ролі · Google SSO</div></div>
+        </div>
+        <div class="pbar fx">
+          <div class="pl"><span>Автотести</span><b>178 / 178</b></div>
+          <div class="tr"><i style="--w:100%"></i></div>
+        </div>
+        <div class="pbar fx">
+          <div class="pl"><span>Стадія</span><b>прототип у паралельному тестуванні</b></div>
+          <div class="tr"><i class="y" style="--w:75%"></i></div>
+        </div>
+        <a class="e-link fx" href="https://graficrobit.vercel.app" target="_blank" rel="noopener">graficrobit.vercel.app ↗</a>
+      </div></div></div>
+    </article>
+
+    <article class="entry" id="aimad">
+      <button class="e-head" onclick="toggleEntry(this)">
+        <div class="e-title">
+          <h3>AI MAD Dashboard</h3>
+          <span class="badge b-prod">Експлуатація</span>
+        </div>
+        <div class="e-headside">
+          <div class="e-num">8+<small>релізів · v1.8.0</small></div>
+          <span class="chev">▼</span>
+        </div>
+      </button>
+      <div class="e-body"><div><div class="e-body-in">
+        <div class="e-meta fx">v1.8.0 · GitHub Pages · JavaScript · Chart.js · SheetJS</div>
+        <p class="e-desc fx">Дашборд портфеля AI-автоматизацій команди: статуси, <b>фінансовий ефект
+        у грн/рік</b>, роадмап, експорт звітів. У щоденній експлуатації, періодично оновлюється.</p>
+        <div class="mini fx">
+          <div class="m"><div class="mv" data-cu="8" data-suf="+">0</div><div class="mk">релізів</div></div>
+          <div class="m"><div class="mv" data-cu="100" data-suf="%">0</div><div class="mk">обчислень у браузері</div></div>
+          <div class="m"><div class="mv" data-cu="1">0</div><div class="mk">файл — весь застосунок</div></div>
+        </div>
+        <div class="e-facts fx">
+          <span>privacy-first — Excel локально, дані не покидають браузер</span>
+          <span>ефект у FTE + пряма економія</span>
+          <span>звіт одним кліком</span>
+        </div>
+        <a class="e-link fx" href="https://kristinaryabtseva-web.github.io/ai-automations-dashboard/" target="_blank" rel="noopener">Відкрити дашборд ↗</a>
+      </div></div></div>
+    </article>
+
+    <article class="entry" id="backlog">
+      <button class="e-head" onclick="toggleEntry(this)">
+        <div class="e-title">
+          <h3>MAD Backlog</h3>
+          <span class="badge b-prod">Експлуатація</span>
+        </div>
+        <div class="e-headside">
+          <div class="e-num">29<small>релізів · v1.29.0</small></div>
+          <span class="chev">▼</span>
+        </div>
+      </button>
+      <div class="e-body"><div><div class="e-body-in">
+        <div class="e-meta fx">v1.29.0 · GitHub Pages · JavaScript · CSV</div>
+        <p class="e-desc fx">Аналітика Jira-беклогу команди для менеджменту: дашборди, епіки,
+        динаміка виконання. <b>З одного CSV, без доступів та інтеграцій.</b> У щоденній експлуатації, періодично оновлюється.</p>
+        <div class="mini fx">
+          <div class="m"><div class="mv" data-cu="29">0</div><div class="mk">релізів</div></div>
+          <div class="m"><div class="mv" data-cu="90" data-suf="+">0</div><div class="mk">комітів</div></div>
+          <div class="m"><div class="mv" data-cu="6000">0</div><div class="mk">рядків JS</div></div>
+        </div>
+        <div class="e-facts fx">
+          <span>модульна архітектура</span>
+          <span>дашборди для менеджменту</span>
+        </div>
+        <a class="e-link fx" href="https://kristinaryabtseva-web.github.io/mad-backlog/" target="_blank" rel="noopener">Відкрити дашборд ↗</a>
+      </div></div></div>
+    </article>
+
+    </div></div>
+  </section>
+
+  <!-- ДОСЛІДЖЕННЯ -->
+  <section class="open" id="research">
+    <button class="sec-title" onclick="toggleSec(this)"><span class="n">03</span> Дослідження <span class="s-chev">▼</span></button>
+    <div class="sec-body"><div>
+    <div class="sec-sub">Разові ресерчі, що завершились презентацією результатів</div>
+
+    <article class="entry" id="report">
+      <button class="e-head" onclick="toggleEntry(this)">
+        <div class="e-title">
+          <h3>AI Report</h3>
+          <span class="badge b-prod">Презентовано</span>
+        </div>
+        <div class="e-headside">
+          <div class="e-num">1.2M<small>запитів проаналізовано</small></div>
+          <span class="chev">▼</span>
+        </div>
+      </button>
+      <div class="e-body"><div><div class="e-body-in">
+        <div class="e-meta fx">Травень 2026 · GitHub Pages · Data Analysis</div>
+        <p class="e-desc fx">Дослідження реального використання AI-інструментів в організації:
+        рівень впровадження, топ-інструменти, ключові висновки для керівництва.</p>
+        <div class="mini fx">
+          <div class="m"><div class="mv" data-cu="1200000">0</div><div class="mk">запитів</div></div>
+          <div class="m"><div class="mv" data-cu="1836">0</div><div class="mk">користувачів</div></div>
+          <div class="m"><div class="mv" data-cu="155">0</div><div class="mk">AI-інструментів</div></div>
+          <div class="m"><div class="mv" data-cu="76">0</div><div class="mk">категорій · 23 напрямки</div></div>
+        </div>
+        <a class="e-link fx" href="https://kristinaryabtseva-web.github.io/ai-report/index.html" target="_blank" rel="noopener">Відкрити звіт ↗</a>
+      </div></div></div>
+    </article>
+
+    <article class="entry" id="sandbox">
+      <button class="e-head" onclick="toggleEntry(this)">
+        <div class="e-title">
+          <h3>AI Sandbox</h3>
+          <span class="badge b-prod">Презентовано</span>
+        </div>
+        <div class="e-headside">
+          <div class="e-num">R&D<small>пісочниця для банку</small></div>
+          <span class="chev">▼</span>
+        </div>
+      </button>
+      <div class="e-body"><div><div class="e-body-in">
+        <div class="e-meta fx">Травень 2026 · GitHub Pages · React</div>
+        <p class="e-desc fx">Концепція «ШІ-пісочниці» для банку — безпечного середовища
+        для експериментів з AI. Інтерактивний прототип-презентація.</p>
+        <a class="e-link fx" href="https://kristinaryabtseva-web.github.io/ai-sandbox-research/" target="_blank" rel="noopener">Відкрити прототип ↗</a>
+      </div></div></div>
+    </article>
+    </div></div>
+  </section>
+
+  <footer>
+    <span class="sg">Христина Рябцева — Product Owner × AI</span>
+    <span>v3.8.0 · створено з Claude Code · 2026</span>
+  </footer>
+
+</div>
+
+<!-- ====== КЕЙНОУТ (для виступу зі сцени) ====== -->
+<div class="keynote" id="keynote" role="dialog" aria-label="Презентація портфоліо">
+  <div class="kn-progress" id="knProg"></div>
+  <button class="kn-close" onclick="knClose()">Esc — вийти</button>
+  <button class="kn-nav kn-prev" onclick="knStep(-1)">←</button>
+  <button class="kn-nav kn-next" onclick="knStep(1)">→</button>
+  <div class="kn-hint">← → — гортати</div>
+  <div class="kn-counter" id="knCnt"></div>
+
+  <section class="kn-slide">
+    <div class="tag">Христина Рябцева — Product Owner</div>
+    <h2><span class="hl">Продукти,</span><br>створені <span class="o">з AI</span></h2>
+    <p class="sub">Портфоліо 2026. П'ять проєктів за три місяці — <b>без класичної команди розробки</b>.</p>
+  </section>
+
+  <section class="kn-slide">
+    <div class="tag">Підхід</div>
+    <h2>Я не пишу код.<br>Я <span class="o">керую продуктом.</span></h2>
+    <p class="sub">Вимоги, якість, релізи, документація — як у справжньої продуктової команди.
+    Роль розробки виконує <b>Claude Code</b>, до code review, аудиту й тестування
+    долучаються AI-субагенти.</p>
+  </section>
+
+  <section class="kn-slide">
+    <div class="tag">Портфель у цифрах</div>
+    <div class="kn-row">
+      <div class="kn-stat"><div class="v"><em data-kc="5">0</em></div><div class="k">проєктів</div></div>
+      <div class="kn-stat"><div class="v"><em data-kc="5">0</em></div><div class="k">рішень онлайн</div></div>
+      <div class="kn-stat"><div class="v"><em data-kc="178">0</em>/178</div><div class="k">автотестів зелені</div></div>
+      <div class="kn-stat"><div class="v"><em data-kc="100">0</em>+</div><div class="k">git-комітів</div></div>
+    </div>
+    <p class="sub">3 продукти, що працюють постійно + 2 презентовані дослідження.</p>
+  </section>
+
+  <section class="kn-slide">
+    <div class="tag">№01 — GraficRobit — розробка й тестування</div>
+    <h2>Графік на <span class="o">105 операторів</span> — одним кліком</h2>
+    <div class="kn-row">
+      <div class="kn-stat"><div class="v"><em data-kc="16">0</em></div><div class="k">правил валідації</div></div>
+      <div class="kn-stat"><div class="v"><em data-kc="178">0</em>/178</div><div class="k">автотестів</div></div>
+      <div class="kn-stat"><div class="v"><em data-kc="90">0</em>+</div><div class="k">релізів</div></div>
+    </div>
+    <p class="sub">Замінює ручне складання графіка кол-центру в Excel.
+    Трудовий кодекс і політики банку перевіряються <b>в реальному часі</b>.</p>
+  </section>
+
+  <section class="kn-slide">
+    <div class="tag">№02 — AI MAD Dashboard — в експлуатації</div>
+    <h2>Кожна автоматизація <span class="o">має ціну.</span><br>Тепер її видно.</h2>
+    <p class="sub">Дашборд портфеля AI-автоматизацій: фінансовий ефект у грн/рік, роадмап,
+    звіт одним кліком. <b>Дані не покидають браузер.</b></p>
+  </section>
+
+  <section class="kn-slide">
+    <div class="tag">№03 — MAD Backlog — в експлуатації</div>
+    <h2>Беклог команди — <span class="o">як на долоні</span></h2>
+    <div class="kn-row">
+      <div class="kn-stat"><div class="v"><em data-kc="6000">0</em></div><div class="k">рядків JS</div></div>
+      <div class="kn-stat"><div class="v"><em data-kc="90">0</em>+</div><div class="k">комітів</div></div>
+    </div>
+    <p class="sub">Аналітика Jira для менеджменту — з одного CSV, <b>без доступів та інтеграцій</b>.</p>
+  </section>
+
+  <section class="kn-slide">
+    <div class="tag">R-01 — AI Report — дослідження</div>
+    <div class="big"><span data-kc="1200000">0</span></div>
+    <h2>запитів. AI <span class="o">вже тут.</span></h2>
+    <p class="sub"><b>155 інструментів, 1 836 користувачів, 76 категорій</b> —
+    реальна картина використання AI в організації.</p>
+  </section>
+
+  <section class="kn-slide">
+    <div class="tag">R-02 — AI Sandbox — презентовано</div>
+    <h2>Безпечне місце<br>для <span class="o">сміливих експериментів</span></h2>
+    <p class="sub">Концепція «ШІ-пісочниці» для банку — безпечного середовища
+    для експериментів з AI. <b>Презентовано команді.</b></p>
+  </section>
+
+  <section class="kn-slide">
+    <div class="tag">Що далі</div>
+    <h2>Це лише <span class="o">3 місяці.</span><br><span class="hl">Далі — більше.</span></h2>
+    <p class="sub">Створено з Claude Code — 2026</p>
+    <div class="kn-qr">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=0A0A0A&bgcolor=FFFFFF&data=https%3A%2F%2Fkristinaryabtseva-web.github.io%2Fportfolio%2F" alt="QR-код портфоліо" loading="lazy">
+      <span>Скануйте —<br>портфоліо у вас</span>
+    </div>
+  </section>
+</div>
+
+<script>
+// ====== ЗГОРТАННЯ ПРОЄКТІВ ======
+const fmtN = n => n.toLocaleString('uk-UA').replace(/,/g,' ');
+function runCU(scope){
+  scope.querySelectorAll('[data-cu]').forEach(el=>{
+    const target = +el.dataset.cu, suf = el.dataset.suf||'', dur = 900, t0 = performance.now();
+    const tick = (t)=>{
+      const p = Math.min((t-t0)/dur,1);
+      el.textContent = fmtN(Math.round(target*(1-Math.pow(1-p,3)))) + suf;
+      if(p<1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  });
+}
+function toggleEntry(btn){
+  const e = btn.closest('.entry');
+  const opening = !e.classList.contains('open');
+  e.classList.toggle('open');
+  if(opening) runCU(e);
+}
+// згортання цілої секції
+function toggleSec(btn){
+  btn.closest('section').classList.toggle('open');
+}
+// розгорнути / згорнути все
+function expandAll(open){
+  document.querySelectorAll('#products,#research').forEach(s=>s.classList.toggle('open',open));
+  document.querySelectorAll('.entry').forEach(e=>{
+    const was = e.classList.contains('open');
+    e.classList.toggle('open',open);
+    if(open && !was) runCU(e);
+  });
+}
+// клік у змісті — розгорнути секцію і потрібний запис
+document.querySelectorAll('.toc a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    const t = document.querySelector(a.getAttribute('href'));
+    if(!t) return;
+    const sec = t.closest('section');
+    if(sec && !sec.classList.contains('open')) sec.classList.add('open');
+    if(!t.classList.contains('open')){ t.classList.add('open'); runCU(t); }
+  });
+});
+// перший проєкт відкритий одразу
+window.addEventListener('load',()=>{
+  const first = document.querySelector('.entry');
+  if(first){ first.classList.add('open'); runCU(first); }
+});
+
+// ====== КЕЙНОУТ ======
+const kn = document.getElementById('keynote');
+const slides = kn.querySelectorAll('.kn-slide');
+const knProg = document.getElementById('knProg');
+const knCnt = document.getElementById('knCnt');
+let cur = 0, knOn = false;
+
+const fmt = n => n.toLocaleString('uk-UA').replace(/,/g,' ');
+function animKC(slide){
+  slide.querySelectorAll('[data-kc]').forEach(el=>{
+    const target = +el.dataset.kc, dur = 1100, t0 = performance.now();
+    const tick = (t)=>{
+      const p = Math.min((t-t0)/dur,1);
+      el.textContent = fmt(Math.round(target*(1-Math.pow(1-p,3))));
+      if(p<1 && knOn) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  });
+}
+function show(i){
+  cur = Math.max(0, Math.min(slides.length-1, i));
+  slides.forEach((s,j)=>s.classList.toggle('act', j===cur));
+  knProg.style.width = ((cur+1)/slides.length*100)+'%';
+  knCnt.innerHTML = '<b>'+String(cur+1).padStart(2,'0')+'</b> / '+String(slides.length).padStart(2,'0');
+  animKC(slides[cur]);
+}
+function knOpen(){ knOn = true; kn.classList.add('open'); document.body.style.overflow='hidden'; show(0); }
+function knClose(){ knOn = false; kn.classList.remove('open'); document.body.style.overflow=''; }
+function knStep(d){ show(cur+d); }
+
+document.addEventListener('keydown',(e)=>{
+  if(!knOn) return;
+  if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){ e.preventDefault(); knStep(1); }
+  else if(e.key==='ArrowLeft'||e.key==='PageUp'){ e.preventDefault(); knStep(-1); }
+  else if(e.key==='Escape'){ knClose(); }
+});
+kn.addEventListener('click',(e)=>{
+  if(e.target.closest('button')) return;
+  knStep(e.clientX < window.innerWidth*0.25 ? -1 : 1);
+});
+let tx0 = null;
+kn.addEventListener('touchstart',(e)=>{ tx0 = e.touches[0].clientX; },{passive:true});
+kn.addEventListener('touchend',(e)=>{
+  if(tx0===null) return;
+  const dx = e.changedTouches[0].clientX - tx0;
+  if(Math.abs(dx) > 50) knStep(dx<0 ? 1 : -1);
+  tx0 = null;
+},{passive:true});
+</script>
+</body>
+</html>
