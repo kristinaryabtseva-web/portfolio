@@ -152,7 +152,7 @@ a{color:var(--blue);text-decoration:none}
 .tl-replay:hover{color:var(--orange);border-color:var(--orange);transform:rotate(180deg)}
 
 /* ====== ПЕРЕМИКАЧ РОЗГОРНУТИ/ЗГОРНУТИ ====== */
-.tools{display:flex;justify-content:flex-end;margin-top:16px;margin-bottom:-26px}
+.tools{display:flex;justify-content:flex-end;gap:18px;margin-top:16px;margin-bottom:-26px}
 .t-btn{
   font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;
   letter-spacing:.12em;text-transform:uppercase;
@@ -602,10 +602,7 @@ footer .sg{font-weight:600;color:var(--soft)}
       <p class="intro">Будую робочі продукти у парі з <b>Claude Code</b> — без класичної команди
       розробки. Формулюю вимоги, керую якістю та релізами; AI виконує роль розробника.</p>
     </div>
-    <div class="hbtns">
-      <button class="kn-btn" onclick="knOpen()">▶ Презентація</button>
-      <button class="kn-btn pdf" onclick="window.print()">↓ Зберегти PDF</button>
-    </div>
+    <button class="kn-btn" onclick="knOpen()">▶ Презентація</button>
   </header>
 
   <!-- ЦИФРИ -->
@@ -667,6 +664,7 @@ footer .sg{font-weight:600;color:var(--soft)}
 
   <!-- РОЗГОРНУТИ / ЗГОРНУТИ ВСЕ -->
   <div class="tools">
+    <button class="t-btn" onclick="window.print()">↓ зберегти pdf</button>
     <button class="t-btn" id="tAll" onclick="toggleAll()">⊕ розгорнути все</button>
   </div>
 
@@ -879,7 +877,7 @@ footer .sg{font-weight:600;color:var(--soft)}
   <footer>
     <span class="sg">Христина Рябцева — Product Owner × AI</span>
     <span class="f-note">Ця сторінка — теж продукт: 20+ релізів за один день у парі з Claude Code 🐜</span>
-    <span>v3.21.7 · створено з Claude Code · 2026</span>
+    <span>v3.22.0 · створено з Claude Code · 2026</span>
   </footer>
 
 </div>
