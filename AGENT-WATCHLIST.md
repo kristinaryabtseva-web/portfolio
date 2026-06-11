@@ -7,7 +7,7 @@
 
 | Проєкт | GitHub-репо | Версія в портфоліо |
 |---|---|---|
-| GraficRobit | graficrobit (приватний) | v0.5.93 |
+| GraficRobit | graficrobit (приватний) | v0.5.99 |
 | AI MAD Dashboard | ai-automations-dashboard | v1.9.0 |
 | MAD Backlog | mad-backlog | v1.29.0 |
 | AI Report | ai-report | — (травень 2026) |
